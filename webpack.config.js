@@ -4,6 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {VueLoaderPlugin} = require('vue-loader')
 
 const config = {
+    devServer: {
+        static: './public',
+        hot: true,
+    },
     mode: 'development',
     entry: path.resolve(__dirname, 'src/main.js'),
     output: {
@@ -23,11 +27,6 @@ const config = {
                 use: ['babel-loader']
             },
             {
-                test: /\.vue$/,
-                exclude: /node_modules/,
-                use: ['vue-loader']
-            },
-            {
                 test: /\.css/,
                 exclude: /node_modules/,
                 use: ['style-loader']
@@ -35,9 +34,9 @@ const config = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
+        //new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
 
-        new HtmlWebpackPlugin({template: 'public/index.html'}),
+        //new HtmlWebpackPlugin({template: 'public/index.html'}),
 
         new VueLoaderPlugin()
     ]
